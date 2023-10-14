@@ -68,7 +68,8 @@
       "plugin:prettier/recommended"
     ],
     "ignorePatterns": [
-      "dist"
+      "dist",
+      "example"
     ],
     "parserOptions": {
       "project": "./tsconfig.json"

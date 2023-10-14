@@ -47,6 +47,16 @@
         "warn",
         20
       ],
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": [
+            "tsup.config.ts",
+            "**/*.test.ts",
+            "**/*.test.tsx"
+          ]
+        }
+      ],
       "no-console": "off"
     }
   },

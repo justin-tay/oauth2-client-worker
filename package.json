@@ -16,6 +16,9 @@
     "url": "https://github.com/justin-tay/oauth2-client-worker/issues"
   },
   "homepage": "https://github.com/justin-tay/oauth2-client-worker",
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  },
   "prettier": {
     "printWidth": 80,
     "semi": true,

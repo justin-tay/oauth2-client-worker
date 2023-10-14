@@ -15,5 +15,20 @@
   "bugs": {
     "url": "https://github.com/justin-tay/oauth2-client-worker/issues"
   },
-  "homepage": "https://github.com/justin-tay/oauth2-client-worker"
+  "homepage": "https://github.com/justin-tay/oauth2-client-worker",
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "quoteProps": "as-needed",
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "bracketSameLine": false,
+    "arrowParens": "always",
+    "requirePragma": false,
+    "insertPragma": false,
+    "proseWrap": "preserve",
+    "htmlWhitespaceSensitivity": "css",
+    "vueIndentScriptAndStyle": false
+  }
 }

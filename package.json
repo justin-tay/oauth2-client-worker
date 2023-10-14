@@ -4,7 +4,9 @@
   "description": "OAuth 2 Client implementation for Service Workers",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,30 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "typescript": "^5.2.2"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "browser": true
+    },
+    "extends": [
+      "airbnb-base",
+      "airbnb-typescript/base",
+      "plugin:prettier/recommended"
+    ],
+    "ignorePatterns": [
+      "dist"
+    ],
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "rules": {
+      "complexity": [
+        "warn",
+        20
+      ],
+      "no-console": "off"
+    }
   },
   "prettier": {
     "printWidth": 80,

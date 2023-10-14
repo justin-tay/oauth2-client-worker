@@ -1,0 +1,19 @@
+{
+  "name": "oauth2-client-worker",
+  "version": "0.0.0",
+  "description": "OAuth 2 Client implementation for Service Workers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justin-tay/oauth2-client-worker.git"
+  },
+  "author": "Justin Tay",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/justin-tay/oauth2-client-worker/issues"
+  },
+  "homepage": "https://github.com/justin-tay/oauth2-client-worker"
+}

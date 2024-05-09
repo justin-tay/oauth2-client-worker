@@ -4,7 +4,7 @@ import { ClientConfiguration } from './ClientConfiguration';
 import { ProviderConfiguration } from './ProviderConfiguration';
 import getAuthorizationUrl from './getAuthorizationUrl';
 
-global.crypto = crypto;
+global.crypto = crypto as any;
 
 describe('getAuthorizationUrl', () => {
   it('should generate valid url', async () => {

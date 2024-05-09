@@ -4,7 +4,7 @@ import { ClientConfiguration } from './ClientConfiguration';
 import { ProviderConfiguration } from './ProviderConfiguration';
 import getPushedAuthorizationUrl from './getPushedAuthorizationUrl';
 
-global.crypto = crypto;
+global.crypto = crypto as any;
 
 global.fetch = jest.fn();
 

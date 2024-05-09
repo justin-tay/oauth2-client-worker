@@ -7,7 +7,7 @@ import { AuthorizationContext } from './AuthorizationContext';
 import { AuthorizationRequestContext } from './AuthorizationRequestContext';
 import authorize from './authorize';
 
-global.crypto = crypto;
+global.crypto = crypto as any;
 global.fetch = jest.fn();
 
 jest.mock('./authorize');

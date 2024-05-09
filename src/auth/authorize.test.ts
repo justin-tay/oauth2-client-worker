@@ -5,7 +5,7 @@ import { ProviderConfiguration } from './ProviderConfiguration';
 import authorize from './authorize';
 import getAuthorizationRequestUrl from './getAuthorizationRequestUrl';
 
-global.crypto = crypto;
+global.crypto = crypto as any;
 
 jest.mock('./getAuthorizationRequestUrl');
 

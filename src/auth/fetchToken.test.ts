@@ -6,7 +6,7 @@ import fetchToken from './fetchToken';
 import { AuthorizationCodeAccessTokenRequest } from './AuthorizationCodeAccessTokenRequest';
 import { AuthorizationContext } from './AuthorizationContext';
 
-global.crypto = crypto;
+global.crypto = crypto as any;
 
 global.fetch = jest.fn();
 

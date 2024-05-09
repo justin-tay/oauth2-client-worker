@@ -1,7 +1,7 @@
 import crypto from 'crypto';
 import getAuthorizationRequest from './getAuthorizationRequest';
 
-global.crypto = crypto;
+global.crypto = crypto as any;
 
 describe('getAuthorizationRequest', () => {
   it('should contain fields', async () => {

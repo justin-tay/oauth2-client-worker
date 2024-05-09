@@ -6,7 +6,7 @@ import fetchWithBearer from './fetchWithBearer';
 import refreshToken from './refreshToken';
 import { TokenResponse } from './TokenResponse';
 
-global.crypto = crypto;
+global.crypto = crypto as any;
 
 global.fetch = jest.fn();
 

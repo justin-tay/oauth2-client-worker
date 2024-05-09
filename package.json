@@ -1,6 +1,6 @@
 {
   "name": "oauth2-client-worker",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "OAuth 2 Client implementation for Service Workers",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

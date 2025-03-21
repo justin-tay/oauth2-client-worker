@@ -4,12 +4,15 @@ import { ClientConfiguration } from './ClientConfiguration';
 import { ProviderConfiguration } from './ProviderConfiguration';
 import authorize from './authorize';
 import getAuthorizationRequestUrl from './getAuthorizationRequestUrl';
+import { Mock } from 'vitest';
 
 global.crypto = crypto as any;
 
-jest.mock('./getAuthorizationRequestUrl');
+vi.mock('./getAuthorizationRequestUrl');
 
-const mockGetAuthorizationRequestUrl = getAuthorizationRequestUrl as jest.Mock;
+const mockGetAuthorizationRequestUrl = getAuthorizationRequestUrl as Mock<
+  typeof getAuthorizationRequestUrl
+>;
 
 beforeEach(() => {
   mockGetAuthorizationRequestUrl.mockClear();

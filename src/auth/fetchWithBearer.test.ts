@@ -5,16 +5,17 @@ import { AuthorizationContext } from './AuthorizationContext';
 import fetchWithBearer from './fetchWithBearer';
 import refreshToken from './refreshToken';
 import { TokenResponse } from './TokenResponse';
+import { Mock } from 'vitest';
 
 global.crypto = crypto as any;
 
-global.fetch = jest.fn();
+const mockFetch = vi.fn();
 
-const mockFetch = global.fetch as jest.Mock;
+global.fetch = mockFetch;
 
-jest.mock('./refreshToken');
+vi.mock('./refreshToken');
 
-const mockRefreshToken = refreshToken as jest.Mock;
+const mockRefreshToken = refreshToken as Mock;
 
 beforeEach(() => {
   mockRefreshToken.mockClear();

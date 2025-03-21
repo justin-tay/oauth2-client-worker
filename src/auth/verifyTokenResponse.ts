@@ -24,18 +24,18 @@ const verifyTokenResponse = async (params: VerifyTokenResponseParams) => {
           issuer: providerConfig.issuer,
           audience: clientConfig.audience,
         });
-        console.log('Access Token', accessToken.payload);
-        if (!accessToken.payload) {
+        console.log('Access Token', accessToken?.payload);
+        if (!accessToken?.payload) {
           return false;
         }
       }
 
-      if (tokenResponse.idToken) {
+      if (tokenResponse?.idToken) {
         const idToken = await jwtVerify(tokenResponse.idToken, jwks, {
           issuer: providerConfig.issuer,
           audience: clientConfig.clientId,
         });
-        console.log('ID Token', idToken.payload);
+        console.log('ID Token', idToken?.payload);
         if (
           !idToken.payload ||
           idToken.payload.nonce !== authorizationRequest.nonce

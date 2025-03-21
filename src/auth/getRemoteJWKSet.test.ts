@@ -1,13 +1,14 @@
 import { createRemoteJWKSet } from 'jose';
 import getRemoteJWKSet from './getRemoteJWKSet';
+import { Mock } from 'vitest';
 
-jest.mock('jose');
+vi.mock('jose');
 
-const mockCreateRemoteJWKSet = createRemoteJWKSet as jest.Mock;
+const mockCreateRemoteJWKSet = createRemoteJWKSet as Mock;
 
 describe('getRemoteJWKSSet', () => {
   it('should cache', () => {
-    const jwtVerifyGetKey = jest.fn;
+    const jwtVerifyGetKey = vi.fn;
     mockCreateRemoteJWKSet.mockImplementationOnce(() => jwtVerifyGetKey);
     const result = getRemoteJWKSet(
       'http://keycloak/realms/master/protocol/openid-connect/certs',

@@ -6,14 +6,15 @@ import { AuthConfiguration } from './AuthConfiguration';
 import { AuthorizationContext } from './AuthorizationContext';
 import { AuthorizationRequestContext } from './AuthorizationRequestContext';
 import authorize from './authorize';
+import { Mock } from 'vitest';
 
 global.crypto = crypto as any;
-global.fetch = jest.fn();
 
-jest.mock('./authorize');
+vi.mock('./authorize');
 
-const mockFetch = global.fetch as jest.Mock;
-const mockAuthorize = authorize as jest.Mock;
+const mockFetch = vi.fn();
+global.fetch = mockFetch;
+const mockAuthorize = authorize as Mock;
 
 beforeEach(() => {
   mockFetch.mockClear();

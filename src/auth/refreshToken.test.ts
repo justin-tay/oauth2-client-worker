@@ -4,13 +4,15 @@ import { ClientConfiguration } from './ClientConfiguration';
 import { AuthorizationContext } from './AuthorizationContext';
 import { RefreshTokenRequest } from './RefreshTokenRequest';
 import verifyTokenResponse from './verifyTokenResponse';
+import { Mock } from 'vitest';
 
-global.fetch = jest.fn();
+const mockFetch = vi.fn();
+global.fetch = mockFetch;
 
-jest.mock('./verifyTokenResponse');
-
-const mockFetch = global.fetch as jest.Mock;
-const mockVerifyTokenResponse = verifyTokenResponse as jest.Mock;
+vi.mock('./verifyTokenResponse');
+const mockVerifyTokenResponse = verifyTokenResponse as Mock<
+  typeof verifyTokenResponse
+>;
 
 beforeEach(() => {
   mockFetch.mockClear();

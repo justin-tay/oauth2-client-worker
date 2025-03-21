@@ -6,9 +6,8 @@ import getPushedAuthorizationUrl from './getPushedAuthorizationUrl';
 
 global.crypto = crypto as any;
 
-global.fetch = jest.fn();
-
-const mockFetch = global.fetch as jest.Mock;
+const mockFetch = vi.fn();
+global.fetch = mockFetch;
 
 beforeEach(() => {
   mockFetch.mockClear();

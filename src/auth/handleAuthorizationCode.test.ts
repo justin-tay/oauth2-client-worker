@@ -6,10 +6,11 @@ import { AuthorizationContext } from './AuthorizationContext';
 import { AuthorizationRequestContext } from './AuthorizationRequestContext';
 import { AuthorizationRequest } from './AuthorizationRequest';
 import fetchToken from './fetchToken';
+import { Mock } from 'vitest';
 
-jest.mock('./fetchToken');
+vi.mock('./fetchToken');
 
-const mockFetchToken = fetchToken as jest.Mock;
+const mockFetchToken = fetchToken as Mock;
 
 beforeEach(() => {
   mockFetchToken.mockClear();

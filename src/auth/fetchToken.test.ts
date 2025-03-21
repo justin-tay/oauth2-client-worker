@@ -8,11 +8,13 @@ import { AuthorizationContext } from './AuthorizationContext';
 
 global.crypto = crypto as any;
 
-global.fetch = jest.fn();
+const mockFetch = vi.fn();
 
-const mockFetch = global.fetch as jest.Mock;
+global.fetch = mockFetch;
 
-jest.mock('./verifyTokenResponse', () => () => true);
+vi.mock('./verifyTokenResponse', () => {
+  return { default: () => true };
+});
 
 beforeEach(() => {
   mockFetch.mockClear();

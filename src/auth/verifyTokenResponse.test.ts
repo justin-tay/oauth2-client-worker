@@ -5,12 +5,13 @@ import { ClientConfiguration } from './ClientConfiguration';
 import { ProviderConfiguration } from './ProviderConfiguration';
 import verifyTokenResponse from './verifyTokenResponse';
 import getRemoteJWKSet from './getRemoteJWKSet';
+import { Mock } from 'vitest';
 
-jest.mock('./getRemoteJWKSet');
-jest.mock('jose');
+vi.mock('./getRemoteJWKSet');
+vi.mock('jose');
 
-const mockGetRemoteJWKSet = getRemoteJWKSet as jest.Mock;
-const mockJwtVerify = jwtVerify as jest.Mock;
+const mockGetRemoteJWKSet = getRemoteJWKSet as Mock;
+const mockJwtVerify = jwtVerify as Mock;
 
 beforeEach(() => {
   mockGetRemoteJWKSet.mockClear();
@@ -49,7 +50,7 @@ describe('verifyTokenResponse', () => {
       },
     };
     mockJwtVerify.mockImplementation(() => Promise.resolve(response));
-    mockGetRemoteJWKSet.mockImplementation(() => jest.fn());
+    mockGetRemoteJWKSet.mockImplementation(() => vi.fn());
     const verified = await verifyTokenResponse({
       authorizationRequest,
       clientConfig,
@@ -119,7 +120,7 @@ describe('verifyTokenResponse', () => {
       accessToken: 'accessToken',
       tokenType: 'bearer',
     };
-    mockGetRemoteJWKSet.mockImplementation(() => jest.fn());
+    mockGetRemoteJWKSet.mockImplementation(() => vi.fn());
     mockJwtVerify.mockImplementation(() => Promise.resolve());
     const verified = await verifyTokenResponse({
       authorizationRequest,

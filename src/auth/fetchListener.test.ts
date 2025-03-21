@@ -4,9 +4,9 @@ import { ClientConfiguration } from './ClientConfiguration';
 import { ProviderConfiguration } from './ProviderConfiguration';
 import fetchListener from './fetchListener';
 
-global.fetch = jest.fn();
+const mockFetch = vi.fn();
 
-const mockFetch = global.fetch as jest.Mock;
+global.fetch = mockFetch;
 
 beforeEach(() => {
   mockFetch.mockClear();
@@ -44,7 +44,7 @@ const authConfiguration: AuthConfiguration = {
 describe('fetchListener', () => {
   it('should block authorization endpoint', async () => {
     const request = new Request(providerConfig.authorizationEndpoint);
-    const respondWith = jest.fn();
+    const respondWith = vi.fn();
     const event: Partial<FetchEvent> = { request, respondWith };
     fetchListener(authConfiguration)(event as FetchEvent);
     const response = await respondWith.mock.calls[0][0];
@@ -53,7 +53,7 @@ describe('fetchListener', () => {
 
   it('should block token endpoint', async () => {
     const request = new Request(providerConfig.tokenEndpoint);
-    const respondWith = jest.fn();
+    const respondWith = vi.fn();
     const event: Partial<FetchEvent> = { request, respondWith };
     fetchListener(authConfiguration)(event as FetchEvent);
     const response = await respondWith.mock.calls[0][0];
@@ -62,7 +62,7 @@ describe('fetchListener', () => {
 
   it('should end session', async () => {
     const request = new Request(providerConfig.endSessionEndpoint!);
-    const respondWith = jest.fn();
+    const respondWith = vi.fn();
     const event: Partial<FetchEvent> = { request, respondWith };
     const authorizationContexts = new Map<string, AuthorizationContext>();
     const authorizationContext: Partial<AuthorizationContext> = {
